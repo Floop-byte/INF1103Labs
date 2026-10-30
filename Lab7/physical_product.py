@@ -22,7 +22,7 @@ class PhysicalProduct(Product, CanBeShipped):
         print(f"  Weight: {self.__weight} kg")
 
     def get_fulfilment_info(self):
-        return "Requires physical shipping."
+       return "Requires physical shipping."
 
     def calculate_shipping_cost(self):
         """Base fee plus a per-kilogram rate."""
