@@ -1,3 +1,9 @@
+commit af949ddb26a8675545458cb4f68118cb0c72a685
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Wed Oct 28 21:32:16 2026 +0800
+
+    Lab 6 OOP
+
 commit e6c16ce7599124b8b6cba158afface6e4f367942
 Author: Floop-byte <mcljf131@gmail.com>
 Date:   Fri Oct 2 15:33:50 2026 +0800

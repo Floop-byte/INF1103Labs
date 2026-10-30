@@ -1,0 +1,71 @@
+commit af949ddb26a8675545458cb4f68118cb0c72a685
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Wed Oct 28 21:32:16 2026 +0800
+
+    Lab 6 OOP
+
+commit e6c16ce7599124b8b6cba158afface6e4f367942
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Oct 2 15:33:50 2026 +0800
+
+    Docker stuff
+
+commit d8fda236a51da57378e22c2616da34b39b013c46
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Oct 2 15:29:15 2026 +0800
+
+    inventory system
+
+commit 3d98b559e288e357e8d542105e356c9aee8a30a2
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 25 17:15:23 2026 +0800
+
+    Lab 4: document Docker build and volume mount run command
+
+commit 2052f12ebc76c0f12a58fc54728931e887398e0d
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 25 16:24:49 2026 +0800
+
+    Lab 4: persistent auditor with inventory file persistence and transaction history
+    
+    Adds load_inventory()/save_inventory() for reading/writing inventory.txt
+    (gracefully handling a missing file), tracks all valid transaction
+    amounts in a history list, and writes back both total and history on quit.
+    
+    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+
+commit 1438637bda64a2f911c261a54711ed7eefef8471
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 18 16:57:39 2026 +0800
+
+    Lab 3
+
+commit 8a71a6400ee551d04430bf5e772687e4b078d446
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 18 16:19:17 2026 +0800
+
+    Modularized Auditor.py
+
+commit ad021e735849efbab05a99d5c5a9c331e11278a5
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 17:02:59 2026 +0800
+
+    Proofs
+
+commit da118bcaab7f2f947313f623e6e0f604e8c983a3
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 16:49:07 2026 +0800
+
+    dockerfile created
+
+commit dffc8e0c03bc337cbd06faf96480a73c21cdf8d1
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 16:28:44 2026 +0800
+
+    auditor.py no docker (Lab2)
+
+commit 387a9ee13ffe025addd7fa40c708f5692d87f310
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 16:22:13 2026 +0800
+
+    first commit
