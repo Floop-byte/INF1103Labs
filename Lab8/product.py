@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from supplier import Supplier
+
 
 class Product(ABC):
     """Abstract base class for every product in the inventory."""
@@ -34,6 +36,8 @@ class Product(ABC):
     def display_information(self):
         print(f"ID: {self.__product_id} | Name: {self.__name} | "
               f"Price: ${self.__price:.2f} | Stock: {self.__stock}")
+        print("  Supplier: ", end="")
+        self.supplier.display_information()
 
     def to_dict(self):
         """Common data used for saving. Subclasses add their own fields."""

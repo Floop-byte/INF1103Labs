@@ -4,24 +4,27 @@ import os
 from inventory import Inventory, LINE
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
+from supplier import Supplier
 
 INVENTORY_FILE = "inventory.json"
+# amazonSupplier = Supplier(supplier_id=1111, name="Amazon",
+#                          contact_email="amazon@aws.com")
 
 
 # ---------- File handling ----------
-def product_from_dict(item):
+def product_from_dict(item, supplier):
     """Create the correct Product subclass from a saved dictionary."""
     product_type = item["type"]
     if product_type == "physical":
         return PhysicalProduct(item["id"], item["name"], item["price"],
-                               item["stock"], item["weight"])
+                               item["stock"], item["weight"], supplier)
     if product_type == "digital":
         return DigitalProduct(item["id"], item["name"], item["price"],
-                              item["stock"], item["download_size"])
+                              item["stock"], item["download_size"], supplier)
     raise ValueError(f"Unknown product type: {product_type}")
 
 
-def load_inventory(inventory):
+def load_inventory(inventory, supplier):
     """Load products from inventory.json into the given Inventory."""
     if not os.path.exists(INVENTORY_FILE):
         print(f"{INVENTORY_FILE} not found. Starting with empty inventory.")
@@ -31,7 +34,7 @@ def load_inventory(inventory):
         with open(INVENTORY_FILE, "r") as f:
             data = json.load(f)
         for item in data:
-            inventory.add_product(product_from_dict(item))
+            inventory.add_product(product_from_dict(item, supplier))
         print("Inventory loaded successfully.")
     except (json.JSONDecodeError, OSError, KeyError, TypeError, ValueError):
         print("Error reading inventory file. Starting with empty inventory.")
