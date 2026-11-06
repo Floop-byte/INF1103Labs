@@ -7,8 +7,8 @@ from digital_product import DigitalProduct
 from supplier import Supplier
 
 INVENTORY_FILE = "inventory.json"
-# amazonSupplier = Supplier(supplier_id=1111, name="Amazon",
-#                          contact_email="amazon@aws.com")
+amazonSupplier = Supplier(supplier_id=1111, name="Amazon",
+                          contact_email="amazon@aws.com")
 
 
 # ---------- File handling ----------
@@ -67,10 +67,10 @@ def add_product(inventory):
         stock = int(input("Stock Quantity: "))
         if product_type == "1":
             weight = float(input("Weight (kg): "))
-            product = PhysicalProduct(product_id, name, price, stock, weight)
+            product = PhysicalProduct(product_id, name, price, stock, weight, amazonSupplier)
         else:
             size = float(input("Download size (MB): "))
-            product = DigitalProduct(product_id, name, price, stock, size)
+            product = DigitalProduct(product_id, name, price, stock, size, amazonSupplier)
     except ValueError:
         print("Invalid input. Product not added.")
         return
@@ -124,7 +124,7 @@ def main():
     print("INVENTORY MANAGEMENT SYSTEM")
     print("=" * 40)
     inventory = Inventory()
-    load_inventory(inventory)
+    load_inventory(inventory, amazonSupplier)
     show_menu()
 
     while True:
