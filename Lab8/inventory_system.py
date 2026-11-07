@@ -7,12 +7,10 @@ from digital_product import DigitalProduct
 from supplier import Supplier
 
 INVENTORY_FILE = "inventory.json"
-amazonSupplier = Supplier(supplier_id=1111, name="Amazon",
-                          contact_email="amazon@aws.com")
 
 
 # ---------- File handling ----------
-def product_from_dict(item, supplier):
+def product_from_dict(item, supplier: Supplier):
     """Create the correct Product subclass from a saved dictionary."""
     product_type = item["type"]
     if product_type == "physical":
@@ -24,7 +22,7 @@ def product_from_dict(item, supplier):
     raise ValueError(f"Unknown product type: {product_type}")
 
 
-def load_inventory(inventory, supplier):
+def load_inventory(inventory, supplier: Supplier):
     """Load products from inventory.json into the given Inventory."""
     if not os.path.exists(INVENTORY_FILE):
         print(f"{INVENTORY_FILE} not found. Starting with empty inventory.")
@@ -48,7 +46,7 @@ def save_inventory(inventory):
 
 
 # ---------- Menu actions ----------
-def add_product(inventory):
+def add_product(inventory, supplier: Supplier):
     print("Add New Product")
     product_id = input("Product ID: ").strip().upper()
     if not product_id:
@@ -67,10 +65,10 @@ def add_product(inventory):
         stock = int(input("Stock Quantity: "))
         if product_type == "1":
             weight = float(input("Weight (kg): "))
-            product = PhysicalProduct(product_id, name, price, stock, weight, amazonSupplier)
+            product = PhysicalProduct(product_id, name, price, stock, weight, supplier)
         else:
             size = float(input("Download size (MB): "))
-            product = DigitalProduct(product_id, name, price, stock, size, amazonSupplier)
+            product = DigitalProduct(product_id, name, price, stock, size, supplier)
     except ValueError:
         print("Invalid input. Product not added.")
         return
@@ -123,8 +121,10 @@ def main():
     print("=" * 40)
     print("INVENTORY MANAGEMENT SYSTEM")
     print("=" * 40)
+    # Create the supplier independently, then share it with the products.
+    supplier = Supplier(1111, "Amazon", "amazon@aws.com")
     inventory = Inventory()
-    load_inventory(inventory, amazonSupplier)
+    load_inventory(inventory, supplier)
     show_menu()
 
     while True:
@@ -132,7 +132,7 @@ def main():
         if option == "1":
             inventory.display_all()
         elif option == "2":
-            add_product(inventory)
+            add_product(inventory, supplier)
         elif option == "3":
             update_stock(inventory)
         elif option == "4":

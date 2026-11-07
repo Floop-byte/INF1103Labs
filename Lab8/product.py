@@ -42,7 +42,8 @@ class Product(ABC):
     def to_dict(self):
         """Common data used for saving. Subclasses add their own fields."""
         return {"id": self.__product_id, "name": self.__name,
-                "price": self.__price, "stock": self.__stock}
+                "price": self.__price, "stock": self.__stock,
+                "supplier_id": self.supplier.get_supplier_id()}
 
     @abstractmethod
     def get_fulfilment_info(self):
