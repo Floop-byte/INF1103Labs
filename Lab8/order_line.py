@@ -4,7 +4,7 @@ from product import Product
 class OrderLine:
     """A product and quantity within an order."""
 
-    def __init__(self, product: Product, quantity: int):
+    def __init__(self, product: Product, quantity: int) -> None:
         self.product: Product = product
         self.quantity: int = quantity
 

@@ -7,7 +7,7 @@ LINE = "-" * 48
 class Inventory:
     """Manages a collection of Product objects."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.__products: list[Product] = []
 
     def add_product(self, product: Product) -> bool:
@@ -36,11 +36,15 @@ class Inventory:
         self.__products.remove(product)
         return True
 
-    def get_products(self):
+    def get_products(self) -> list[Product]:
         """Return a copy of the product list (e.g. for saving)."""
         return list(self.__products)
 
-    def display_all(self):
+    def show_product_details(product: Product) -> None:
+        product.display_information()
+        print(product.get_fulfilment_info())    
+
+    def display_all(self) -> None:
         print("Current Inventory")
         print(LINE)
         if not self.__products:

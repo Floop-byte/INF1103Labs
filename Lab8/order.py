@@ -5,7 +5,7 @@ from order_line import OrderLine
 class Order:
     """Creates and manages its own order lines."""
 
-    def __init__(self, order_id: str):
+    def __init__(self, order_id: str) -> None:
         self.order_id: str = order_id
         self.order_lines: list[OrderLine] = []
 
