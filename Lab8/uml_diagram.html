@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 8 — Inventory UML Class Diagram</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f3f5f8; color: #172235; font: 15px/1.5 system-ui, sans-serif; }
+  header, footer { max-width: 1740px; margin: auto; padding: 24px 32px; }
+  h1 { margin: 0; font-size: 28px; }
+  p { margin: 8px 0; }
+  .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+  button { padding: 8px 14px; border: 1px solid #b7c4d4; border-radius: 6px; background: white; color: inherit; cursor: pointer; }
+  button:hover { background: #e7effb; }
+  #viewport { overflow: auto; margin: 0 20px; border: 1px solid #cbd4df; border-radius: 8px; background: white; }
+  #canvas { position: relative; width: 1740px; height: 1390px; transform-origin: top left; }
+  #scaled { position: relative; }
+  svg { position: absolute; inset: 0; width: 1740px; height: 1390px; }
+  .class-box { position: absolute; border: 2px solid #334b6b; background: white; border-radius: 4px; overflow: hidden; }
+  .class-box h2 { background: #eaf0f8; text-align: center; font-size: 18px; margin: 0; padding: 10px; border-bottom: 1px solid #334b6b; }
+  .stereotype { display: block; font: 12px system-ui, sans-serif; letter-spacing: .03em; }
+  .abstract { font-style: italic; }
+  .members { padding: 8px 12px; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; }
+  .members + .members { border-top: 1px solid #334b6b; }
+  .member { overflow-wrap: anywhere; padding: 2px 0; }
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; }
+  .legend span { white-space: nowrap; }
+  .notes { background: white; border: 1px solid #cbd4df; border-radius: 8px; padding: 16px 20px; margin-top: 18px; }
+  .notes h2 { margin: 0 0 8px; font-size: 18px; }
+  footer { font-size: 14px; }
+  @media print {
+    @page { size: A3 landscape; margin: 8mm; }
+    body { background: white; }
+    header { padding: 0 0 10px; }
+    h1 { font-size: 20px; }
+    .controls { display: none; }
+    #viewport { overflow: visible; margin: 0; border: 0; }
+    #scaled { width: 100% !important; height: 257mm !important; }
+    #canvas { transform: scale(.69) !important; }
+    footer { padding: 10px 0; }
+    .notes { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Inventory Management System</h1>
+  <p>Lab 8 · Section 8 · UML class diagram</p>
+  <div class="controls">
+    <button id="fit">Fit width</button>
+    <button id="actual">Actual size</button>
+    <button id="print">Print / Save PDF</button>
+    <span>Scroll to explore at actual size. No internet connection required.</span>
+  </div>
+</header>
+<main>
+<div id="viewport" tabindex="0" aria-label="Scrollable UML class diagram">
+<div id="scaled"><div id="canvas">
+<svg viewBox="0 0 1740 1390" role="img" aria-label="Relationships: Supplier associates with Product; Inventory aggregates Products; PhysicalProduct and DigitalProduct inherit Product; PhysicalProduct implements CanBeShipped; Order composes OrderLines; OrderLine associates with Product.">
+  <defs>
+    <marker id="triangle" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 1 1 L 15 8 L 1 15 Z" fill="white" stroke="#334b6b" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="#334b6b" stroke-width="2">
+    <!-- Association: Supplier 1 —— 0..* Product. -->
+    <path d="M 390 150 H 500"/>
+    <!-- Aggregation: hollow diamond touches Inventory. -->
+    <path d="M 1250 240 L 1236 232 L 1222 240 L 1236 248 Z" fill="white"/>
+    <path d="M 1222 240 H 1110"/>
+    <!-- Generalisation arrows point to Product. -->
+    <path d="M 280 650 V 550 H 650 V 490" marker-end="url(#triangle)"/>
+    <path d="M 855 650 V 550 H 940 V 490" marker-end="url(#triangle)"/>
+    <!-- Interface realisation: dashed line, hollow triangle. -->
+    <path d="M 280 990 V 1120" stroke-dasharray="7 5" marker-end="url(#triangle)"/>
+    <!-- Association: each OrderLine refers to one Product. -->
+    <path d="M 1250 740 H 1175 V 410 H 1110"/>
+    <!-- Composition: filled diamond touches Order. -->
+    <path d="M 1475 1100 L 1467 1086 L 1475 1072 L 1483 1086 Z" fill="#334b6b"/>
+    <path d="M 1475 1072 V 930"/>
+  </g>
+  <g fill="#172235" font-family="system-ui, sans-serif" font-size="13">
+    <text x="402" y="140">1</text><text x="459" y="140">0..*</text>
+    <text x="408" y="177">supplies</text>
+    <text x="1120" y="228">0..*</text><text x="1203" y="220">0..*</text>
+    <text x="1131" y="272">contains</text>
+    <text x="348" y="537">inherits</text><text x="955" y="584">inherits</text>
+    <text x="294" y="1065">implements</text>
+    <text x="1120" y="398">1</text><text x="1205" y="727">0..*</text>
+    <text x="1188" y="566" transform="rotate(90 1188 566)">refers to</text>
+    <text x="1490" y="1065">1</text><text x="1490" y="953">0..*</text>
+    <text x="1490" y="1015">owns / creates</text>
+  </g>
+</svg>
+</div></div>
+</div>
+</main>
+<footer>
+  <div class="legend">
+    <span>— Association</span><span>◇— Aggregation (diamond at whole)</span>
+    <span>◆— Composition (diamond at owner)</span><span>—▷ Inheritance</span>
+    <span>┄▷ Interface realisation</span><span>+ public · − private</span>
+  </div>
+  <div class="notes">
+    <h2>Design and multiplicities</h2>
+    <p><strong>Supplier–Product:</strong> each product refers to exactly one supplier; a supplier may supply zero or more products. The supplier is created independently and is not a part of the product.</p>
+    <p><strong>Inventory–Product:</strong> each inventory contains zero or more products. The current implementation permits a product in zero or more inventories, so the Inventory end is <strong>0..*</strong>. Section 3 demonstrates transferring a product; enforcing exclusive membership would require an additional rule and a <strong>0..1</strong> multiplicity instead.</p>
+    <p><strong>Order–OrderLine:</strong> each line belongs to one order; an order creates and manages zero or more lines. Lines are not intended to be transferred or managed independently. Public Python lists do not enforce that design constraint.</p>
+    <p><strong>OrderLine–Product:</strong> each line refers to exactly one product; a product may be referenced by zero or more lines. Removing a line does not destroy its product.</p>
+    <p><strong>Types:</strong> String, Integer, Real, Boolean and void represent Python str, int, float, bool and None. Product [0..1] represents Product | None. Map&lt;String, String | Real | Integer&gt; represents the saved product dictionary. Constructors are shown as «create» operations; inherited members are omitted from subclasses. Italics mark abstract operations.</p>
+    <p><strong>Implementation note:</strong> Inventory currently declares show_product_details without self or @staticmethod. It is shown with its declared parameter in the diagram; calling it through an inventory instance requires fixing that signature. The separate polymorphism test uses a standalone helper.</p>
+    <p><strong>AI-assisted review:</strong> accepted the composition between Order and OrderLine because Order creates its lines internally. Revised the Inventory-end multiplicity from the lab’s exclusive-membership example (0..1) to 0..* to match the current implementation. Review and adapt this note for your submission.</p>
+  </div>
+</footer>
+<script>
+const classes = [
+  { name: 'Supplier', x: 20, y: 40, w: 370, h: 280,
+    attributes: ['− supplier_id: Integer', '− name: String', '− contact_email: String'],
+    methods: ['+ «create» Supplier(supplier_id: Integer, name: String, contact_email: String)', '+ get_supplier_id(): Integer', '+ display_information(): void'] },
+  { name: 'Product', stereotype: 'abstract', x: 500, y: 40, w: 610, h: 450,
+    attributes: ['− product_id: String', '− name: String', '− price: Real', '− stock: Integer', '+ supplier: Supplier'],
+    methods: ['+ «create» Product(product_id: String, name: String, price: Real, stock: Integer, supplier: Supplier)', '+ get_product_id(): String', '+ get_name(): String', '+ get_price(): Real', '+ get_stock(): Integer', '+ update_stock(quantity: Integer): void', '+ display_information(): void', '+ to_dict(): Map<String, String | Real | Integer>', '+ get_fulfilment_info(): String {abstract}'] },
+  { name: 'Inventory', x: 1250, y: 40, w: 450, h: 430,
+    attributes: ['− products: Product [0..*]'],
+    methods: ['+ «create» Inventory()', '+ add_product(product: Product): Boolean', '+ remove_product(product_id: String): Boolean', '+ find_product(product_id: String): Product [0..1]', '+ search_product(product_id: String): Product [0..1]', '+ get_products(): Product [0..*]', '+ show_product_details(product: Product): void', '+ display_all(): void'] },
+  { name: 'PhysicalProduct', x: 20, y: 650, w: 520, h: 340,
+    attributes: ['− weight: Real'],
+    methods: ['+ «create» PhysicalProduct(product_id: String, name: String, price: Real, stock: Integer, weight: Real, supplier: Supplier)', '+ get_weight(): Real', '+ display_information(): void', '+ get_fulfilment_info(): String', '+ calculate_shipping_cost(): Real', '+ to_dict(): Map<String, String | Real | Integer>'] },
+  { name: 'DigitalProduct', x: 590, y: 650, w: 520, h: 320,
+    attributes: ['− download_size: Real'],
+    methods: ['+ «create» DigitalProduct(product_id: String, name: String, price: Real, stock: Integer, download_size: Real, supplier: Supplier)', '+ get_download_size(): Real', '+ display_information(): void', '+ get_fulfilment_info(): String', '+ to_dict(): Map<String, String | Real | Integer>'] },
+  { name: 'CanBeShipped', stereotype: 'interface', x: 20, y: 1120, w: 520, h: 150,
+    attributes: [], methods: ['+ calculate_shipping_cost(): Real {abstract}'] },
+  { name: 'OrderLine', x: 1250, y: 650, w: 450, h: 280,
+    attributes: ['+ product: Product', '+ quantity: Integer'],
+    methods: ['+ «create» OrderLine(product: Product, quantity: Integer)', '+ calculate_subtotal(): Real'] },
+  { name: 'Order', x: 1250, y: 1100, w: 450, h: 270,
+    attributes: ['+ order_id: String', '+ order_lines: OrderLine [0..*]'],
+    methods: ['+ «create» Order(order_id: String)', '+ add_order_line(product: Product, quantity: Integer): void', '+ remove_order_line(product_id: String): Boolean', '+ calculate_total(): Real'] }
+];
+const canvas = document.getElementById('canvas');
+for (const item of classes) {
+  const box = document.createElement('section');
+  box.className = 'class-box';
+  Object.assign(box.style, { left: item.x + 'px', top: item.y + 'px', width: item.w + 'px', height: item.h + 'px' });
+  const heading = document.createElement('h2');
+  if (item.stereotype) {
+    const tag = document.createElement('span');
+    tag.className = 'stereotype';
+    tag.textContent = '«' + item.stereotype + '»';
+    heading.append(tag);
+  }
+  const name = document.createElement('span');
+  name.textContent = item.name;
+  if (item.stereotype === 'abstract') name.className = 'abstract';
+  heading.append(name);
+  box.append(heading);
+  for (const members of [item.attributes, item.methods]) {
+    const group = document.createElement('div');
+    group.className = 'members';
+    for (const member of members) {
+      const row = document.createElement('div');
+      row.className = 'member' + (member.includes('{abstract}') ? ' abstract' : '');
+      row.textContent = member;
+      group.append(row);
+    }
+    box.append(group);
+  }
+  canvas.append(box);
+}
+let fitMode = true;
+function resizeDiagram() {
+  const scale = fitMode ? Math.min(1, document.getElementById('viewport').clientWidth / 1740) : 1;
+  canvas.style.transform = `scale(${scale})`;
+  Object.assign(document.getElementById('scaled').style, { width: 1740 * scale + 'px', height: 1390 * scale + 'px' });
+}
+document.getElementById('fit').onclick = () => { fitMode = true; resizeDiagram(); };
+document.getElementById('actual').onclick = () => { fitMode = false; resizeDiagram(); };
+document.getElementById('print').onclick = () => window.print();
+window.addEventListener('resize', resizeDiagram);
+resizeDiagram();
+</script>
+</body>
+</html>
