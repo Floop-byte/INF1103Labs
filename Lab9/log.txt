@@ -1,0 +1,141 @@
+commit a84e63329866e76e9fe165c35d9f833eafb8d01f
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Sun Nov 8 03:07:58 2026 +0800
+
+    Docker images
+
+commit b0096e71f40b6e492fdbd3404adc2ab838822559
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Sun Nov 8 03:02:54 2026 +0800
+
+    2602376 Jun Feng
+    Update dockerfile
+
+commit 8d54af24c8a43686ab1964af4d4d58c13542a589
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Sun Nov 8 02:57:00 2026 +0800
+
+    2602376 Jun Feng UML Diagram
+
+commit 4fe6fe68a23e98032d5b343e687eb9ade1a19f8c
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Sun Nov 8 02:49:06 2026 +0800
+
+    2602376 Jun Feng
+    Added polymorphism test
+
+commit f77c189328bf98d64e619c698aef723b28672c28
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Sun Nov 8 02:36:27 2026 +0800
+
+    2602376 Jun Feng
+    
+    Added all type definitions for classes
+
+commit b968eefe13fc6abd8a3e972bb9cde334948b84e4
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Sun Nov 8 02:20:53 2026 +0800
+
+    2602376 Jun Feng Added 2 new classes
+
+commit a5eef2715980e5c16a4553226191df7f45b2f26b
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Nov 6 17:57:32 2026 +0800
+
+    Added supplier
+
+commit 734c005f0f52c651e444491e5625792a1681fb1b
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Nov 6 17:56:37 2026 +0800
+
+    Half complete code
+
+commit f41eedcc408c55de0516c00f01ce5340c45b969c
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Nov 6 17:16:13 2026 +0800
+
+    Created supplier class and updated product associations
+
+commit 4f7df86e6e311acd26cdeb3f89e7e32a9d4a136a
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Oct 30 22:48:46 2026 +0800
+
+    Lab 7
+
+commit 700142d194141290270b63f3c9741b00dcff3cc8
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Oct 30 20:02:44 2026 +0800
+
+    Lab 7
+
+commit af949ddb26a8675545458cb4f68118cb0c72a685
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Wed Oct 28 21:32:16 2026 +0800
+
+    Lab 6 OOP
+
+commit e6c16ce7599124b8b6cba158afface6e4f367942
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Oct 2 15:33:50 2026 +0800
+
+    Docker stuff
+
+commit d8fda236a51da57378e22c2616da34b39b013c46
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Oct 2 15:29:15 2026 +0800
+
+    inventory system
+
+commit 3d98b559e288e357e8d542105e356c9aee8a30a2
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 25 17:15:23 2026 +0800
+
+    Lab 4: document Docker build and volume mount run command
+
+commit 2052f12ebc76c0f12a58fc54728931e887398e0d
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 25 16:24:49 2026 +0800
+
+    Lab 4: persistent auditor with inventory file persistence and transaction history
+    
+    Adds load_inventory()/save_inventory() for reading/writing inventory.txt
+    (gracefully handling a missing file), tracks all valid transaction
+    amounts in a history list, and writes back both total and history on quit.
+    
+    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+
+commit 1438637bda64a2f911c261a54711ed7eefef8471
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 18 16:57:39 2026 +0800
+
+    Lab 3
+
+commit 8a71a6400ee551d04430bf5e772687e4b078d446
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 18 16:19:17 2026 +0800
+
+    Modularized Auditor.py
+
+commit ad021e735849efbab05a99d5c5a9c331e11278a5
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 17:02:59 2026 +0800
+
+    Proofs
+
+commit da118bcaab7f2f947313f623e6e0f604e8c983a3
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 16:49:07 2026 +0800
+
+    dockerfile created
+
+commit dffc8e0c03bc337cbd06faf96480a73c21cdf8d1
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 16:28:44 2026 +0800
+
+    auditor.py no docker (Lab2)
+
+commit 387a9ee13ffe025addd7fa40c708f5692d87f310
+Author: Floop-byte <mcljf131@gmail.com>
+Date:   Fri Sep 11 16:22:13 2026 +0800
+
+    first commit
